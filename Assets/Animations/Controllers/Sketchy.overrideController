@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sketchy
+  m_Controller: {fileID: 9100000, guid: 5a68394ab4412a94e9917068ad9c886d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: acf5cb173eae9a842861e212596478b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 28cd06e4880bfbd4da1c43744151834a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 05bc87a77e1dbf64e9aa820e21f4d7c6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d3f610f116ce3ac42a79112118f2ab28, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 148ecfd2dd1eb2641b90447cddcf99be, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5d8f4b0f5c30af040a7549147563f148, type: 2}
