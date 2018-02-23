@@ -40,14 +40,26 @@ public class LoadGameOnStart : MonoBehaviour {
 	
 	void OnApplicationFocus(){
 		if (!run) {
-			slu.SaveGame (filePath);
 			if (Application.isFocused) {
+				Debug.Log ("Gained focus");
 				slu.LoadGame (filePath);
+			} else {
+				Debug.Log ("Lost focus");
+				slu.SaveGame (filePath);
 			}
 		}
 	}
 	void OnApplicationQuit(){
 		if(!run)
 			slu.SaveGame(filePath);
+	}
+	void OnApplicationPause(bool pauseStatus){
+		if (pauseStatus) {
+			Debug.Log ("Paused");
+			slu.SaveGame (filePath);
+		} else {
+			Debug.Log ("Unpaused");
+			slu.LoadGame (filePath);
+		}
 	}
 }
