@@ -163,7 +163,7 @@ PlayerSettings:
     iOS: com.Michael-P-Tang.BulbTest
   buildNumber:
     Standalone: 4
-    iOS: 2
+    iOS: 4
   AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
