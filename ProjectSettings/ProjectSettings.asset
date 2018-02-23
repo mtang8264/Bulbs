@@ -126,7 +126,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0.2
+  bundleVersion: 1.0.3
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -158,10 +158,12 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.MichaelTang.Bulb
-    Standalone: com.MichaelTang.Bulb
+    Android: com.Michael-P-Tang.Bulb
+    Standalone: com.Michael-P-Tang.Bulb
+    iOS: com.Michael-P-Tang.BulbTest
   buildNumber:
-    Standalone: 2
+    Standalone: 3
+    iOS: 2
   AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0

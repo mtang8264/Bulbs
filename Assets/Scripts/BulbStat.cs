@@ -16,7 +16,6 @@ public class BulbStat : MonoBehaviour {
 	bool tick = true;
 	
 	public bool sleeping = false;
-	bool sleepingTick = true;
 	
 	// Use this for initialization
 	void Start () {
@@ -28,40 +27,41 @@ public class BulbStat : MonoBehaviour {
 
 		if ((int)Time.time % statTickTime == 0) {
 			if (tick) {
-				Tick();
+				if (sleeping) {
+					if ((int)Time.time % (statTickTime * 2) == 0) {
+						Tick ();
+					}
+				} else {
+					Tick ();
+				}
 			}
 		} else {
 			tick = true;
 		}
 		
-		if(hunger[1] > 1){
-			hunger[1] = 1;
+		if(hunger[1] > 100){
+			hunger[1] = 100;
 		}
 		if(hunger[1] < 0){
 			hunger[1] = 0;
 		}
-		if(thirst[1] > 1){
-			thirst[1] = 1;
+		if(thirst[1] > 100){
+			thirst[1] = 100;
 		}
 		if(thirst[1] < 0){
 			thirst[1] = 0;
 		}
-		if(sleep[1] > 1){
-			sleep[1] = 1;
+		if(sleep[1] > 100){
+			sleep[1] = 100;
 		}
-		if(hunger[1] < 0){
+		if(sleep[1] < 0){
 			sleep[1] = 0;
 		}
 		
 		if(sleeping){
 			gameObject.GetComponent<BulbWander>().enabled = false;
 			gameObject.GetComponent<Animator> ().CrossFade ("Sleep", 0f);
-			if((int)Time.time % (int)(statTickTime/4) == 0 && sleepingTick){
-				sleep[1] += 0.1f;
-				sleepingTick = false;
-			}else if((int)Time.time % (int)(statTickTime/4) == 0){
-				sleepingTick = false;
-			}
+			sleep[1] += 0.01f;
 		}else{
 			gameObject.GetComponent<BulbWander>().enabled = true;
 		}
@@ -77,8 +77,8 @@ public class BulbStat : MonoBehaviour {
 	}
 	public void Tick (){
 				tick = false;
-				hunger [1] -= hunger [0] * 0.01f;
-				thirst [1] -= thirst [0] * 0.01f;			
-				sleep [1] -= sleep [0] * 0.01f;
+				hunger [1] -= hunger [0] * 0.1f;
+				thirst [1] -= thirst [0] * 0.1f;			
+				sleep [1] -= sleep [0] * 0.1f;
 	}
 }

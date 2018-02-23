@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SleepButton : MonoBehaviour {
-	bool sleeping = false;
+	public bool sleeping = false;
 	public Material selectMaterial;
 	public Material unselectMaterial;
 	

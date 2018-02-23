@@ -39,8 +39,12 @@ public class LoadGameOnStart : MonoBehaviour {
 	}
 	
 	void OnApplicationFocus(){
-		if(!run)
-			slu.SaveGame(filePath);
+		if (!run) {
+			slu.SaveGame (filePath);
+			if (Application.isFocused) {
+				slu.LoadGame (filePath);
+			}
+		}
 	}
 	void OnApplicationQuit(){
 		if(!run)

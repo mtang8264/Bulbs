@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour {
 		nameText.text = bulbStat.bulbName;
 		infoText.text = bulbStat.magic + "\n" + bulbStat.gender;
 
-		hungerBar.localScale = (new Vector3 (bulbStat.hunger [1], 1f, 1f));
-		thirstBar.localScale = (new Vector3 (bulbStat.thirst [1], 1f, 1f));
-		sleepBar.localScale =  (new Vector3 (bulbStat.sleep [1], 1f, 1f));
+		hungerBar.localScale = (new Vector3 (bulbStat.hunger [1]/100, 1f, 1f));
+		thirstBar.localScale = (new Vector3 (bulbStat.thirst [1]/100, 1f, 1f));
+		sleepBar.localScale =  (new Vector3 (bulbStat.sleep [1]/100, 1f, 1f));
 	}
 }
