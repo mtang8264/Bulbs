@@ -76,9 +76,11 @@ public class BulbStat : MonoBehaviour {
 			thirst[1] += value;
 	}
 	public void Tick (){
-				tick = false;
-				hunger [1] -= hunger [0] * 0.1f;
-				thirst [1] -= thirst [0] * 0.1f;			
-				sleep [1] -= sleep [0] * 0.1f;
+		tick = false;
+		hunger [1] -= hunger [0] * 0.1f;
+		thirst [1] -= thirst [0] * 0.1f;
+		if (!sleeping) {
+			sleep [1] -= sleep [0] * 0.1f;
+		}
 	}
 }

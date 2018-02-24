@@ -16,8 +16,12 @@ public class TimeMemory : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (loadUpdate) {
-			bulb = GameObject.FindWithTag("Bulb").GetComponent<BulbStat>();
-			if (bulb != null) {
+			GameObject[] arr;
+			arr = GameObject.FindGameObjectsWithTag("Bulb");
+			if (arr.Length == 1) {
+				Debug.Log ("Found a bulb");
+
+				bulb = GameObject.FindWithTag("Bulb").GetComponent<BulbStat>();
 				lastLoadTime = DateTime.Now;
 
 				TimeSpan duration = lastLoadTime.Subtract (lastSaveTime);
@@ -27,6 +31,10 @@ public class TimeMemory : MonoBehaviour {
 				int secondsSinceSave = (int)duration.TotalSeconds;
 
 				for (int i = 0; i < secondsSinceSave; i++) {
+					if (bulb.sleeping) {
+						bulb.sleep [1] += 0.1f;
+						Debug.Log ("Sleep restored!");
+					}
 					if (i % 60 == 0 && i != 0) {
 						if (bulb.sleeping) {
 							if (i % 120 == 0 && i != 0) {
