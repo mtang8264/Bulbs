@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
+using UnityEngine.SceneManagement;
 
 public class BulbStat : MonoBehaviour {
 	public string bulbName;
@@ -16,6 +18,8 @@ public class BulbStat : MonoBehaviour {
 	bool tick = true;
 	
 	public bool sleeping = false;
+
+	public bool sad = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -24,6 +28,18 @@ public class BulbStat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		float avgStat = (hunger [1] + thirst [1] + sleep [1]) / 3f;
+
+		if (avgStat <= 50f) {
+			sad = true;
+		} else {
+			sad = false;
+		}
+
+		if (avgStat <= 10f) {
+			SaveLoad.DeleteFile (Application.persistentDataPath, "default");
+			SceneManager.LoadScene (1);
+		}
 
 		if ((int)Time.time % statTickTime == 0) {
 			if (tick) {
@@ -60,7 +76,11 @@ public class BulbStat : MonoBehaviour {
 		
 		if(sleeping){
 			gameObject.GetComponent<BulbWander>().enabled = false;
-			gameObject.GetComponent<Animator> ().CrossFade ("Sleep", 0f);
+			if (sad) {
+				gameObject.GetComponent<Animator> ().CrossFade ("SleepSad", 0f);
+			} else {
+				gameObject.GetComponent<Animator> ().CrossFade ("Sleep", 0f);
+			}
 			sleep[1] += 0.01f;
 		}else{
 			gameObject.GetComponent<BulbWander>().enabled = true;
@@ -77,10 +97,10 @@ public class BulbStat : MonoBehaviour {
 	}
 	public void Tick (){
 		tick = false;
-		hunger [1] -= hunger [0] * 0.1f;
-		thirst [1] -= thirst [0] * 0.1f;
+		hunger [1] -= hunger [0] * 0.03f;
+		thirst [1] -= thirst [0] * 0.03f;
 		if (!sleeping) {
-			sleep [1] -= sleep [0] * 0.1f;
+			sleep [1] -= sleep [0] * 0.03f;
 		}
 	}
 }

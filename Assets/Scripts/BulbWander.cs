@@ -52,10 +52,18 @@ public class BulbWander : MonoBehaviour {
 
 		if(moving && !updated){
 			updated = true;
-			animator.CrossFade("Move",0f);
+			if (gameObject.GetComponent<BulbStat> ().sad) {
+				animator.CrossFade ("MoveSad", 0f);
+			} else {
+				animator.CrossFade ("Move", 0f);
+			}
 		}else if(!moving && !updated){
 			updated = true;
-			animator.CrossFade("Idle",0f);
+			if (gameObject.GetComponent<BulbStat> ().sad) {
+				animator.CrossFade ("IdleSad", 0f);
+			} else {
+				animator.CrossFade ("Idle", 0f);
+			}
 		}
 	}
 
