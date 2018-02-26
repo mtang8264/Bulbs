@@ -126,7 +126,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0.6
+  bundleVersion: 1.1.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -160,10 +160,10 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.MichaelTang.Bulb
     Standalone: com.Michael-P-Tang.Bulb
-    iOS: com.Michael-P-Tang.BulbTest
+    iOS: com.Michael-P-Tang.Bulb
   buildNumber:
     Standalone: 4
-    iOS: 6
+    iOS: 1.1.0
   AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
